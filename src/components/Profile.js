@@ -1,14 +1,17 @@
 import React from "react";
+import FollowingList from "./FollowingList.js";
 import Button from "./Button.js";
-import ReposList from "./ReposList";
+import ReposList from "./ReposList.js";
 
 const Profile = props => {
   return (
     <div className="profile">
-      {/* we spread in the repos object */}
+      {/* we spread in the profile object */}
       <h2>Hi, {props.firstname}!</h2>
+      <img src={props.avatar_url} alt="me" />
       <Button handleClick={props.handleClick} value="Logout" />
-      <ReposList forkEvents={props.forkEvents} pullRequestsEvents={props.pullRequestsEvents} pullRequestsEventsURLs={props.pullRequestsEventsURLs} />
+      <FollowingList followers={props.followers} />
+      <ReposList events={props.events} />
     </div>
   );
 };

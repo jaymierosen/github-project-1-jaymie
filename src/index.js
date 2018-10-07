@@ -8,7 +8,4 @@ import "./styles.css";
 
 const rootElement = document.getElementById("root");
 
-ReactDOM.render(
-		<App />,
-	rootElement
-);
+ReactDOM.render(<App />, rootElement);

@@ -5,15 +5,10 @@ const PullRequests = props => {
 	return (
 		<div className="pull-requests">
 			<ul>
-				{props.pullRequestsEvents.map(
-				(repo) =>
-					<li key={`repo-prEvent-${repo.id}`}>{repo.repo.name}</li>
-				)}
-				<hr />
-				{props.pullRequestsEventsURLs.map(
-					(repo) =>
-					<li key={`repo-prEventUrl-${repo.id}`}>state: {repo.state}</li>
-				)}
+			{props.events.map((item) => {
+				//console.log(item.repo.id)
+				return <p>{item.repo.id}</p>
+			})}
 			</ul>
 		</div>
 	)
