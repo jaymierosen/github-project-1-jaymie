@@ -5,10 +5,18 @@ const PullRequests = props => {
 	return (
 		<div className="pull-requests">
 			<ul>
-			{props.events.map((item) => {
-				//console.log(item.repo.id)
-				return <p>{item.repo.id}</p>
-			})}
+				{props.events.map((event, i) => {
+					if (event.type === "PullRequestEvent") {
+						return <React.Fragment key={`pullRequest-${i}`}>
+							<hr />
+							<li key={`pullRequestEvent-${i}`}><a href={event.html_url}>{event.repo.name}</a></li>
+							<li key={`pullRequestEventURL-${i}`}><a href={event.html_url}>Pull Request URL</a></li>
+							<li key={`pullRequestTitle-${i}`}>{event.title}</li>
+							</React.Fragment>
+					} else {
+						return null;
+					}
+				})}
 			</ul>
 		</div>
 	)

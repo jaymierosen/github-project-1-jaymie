@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       // set username to an empty string
       loggedin: false,
-      token: "7b6c0cb58b2c46b3b5c3c69d91c62dae00ee7bbb",
+      token: "4f1153bcb120bbe0dae439da4565caa894334431",
       username: "",
       firstname: "",
       // setting a profile object to store our json data result
@@ -27,6 +27,7 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogOut = this.handleLogOut.bind(this);
+    this.localStorage = this.localStorage.bind(this);
   }
 
   // taking in change event/
@@ -36,6 +37,7 @@ class App extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
+    //localStorage.setItem([e.target.name], e.target.value);
   }
 
   handleLogin() {
@@ -50,6 +52,7 @@ class App extends Component {
   }
 
   handleLogOut() {
+    localStorage.setItem("loggedIn", false);
     this.setState({
       profile: {},
       loggedin: false
@@ -78,13 +81,32 @@ class App extends Component {
     return fetch(url);
   }
 
-  // fetching update
+  localStorage() {
+    localStorage.setItem("username", this.state.username);
+    localStorage.setItem("loggedIn", true);
+  }
+
   componentDidMount() {
     // check if the username is stored in local storage,
     // and if logged in true is in local storage
     // if username is in local storage,
     // fetch data from github api,
     // set logged in to true
+    if (
+      localStorage.getItem("loggedIn") === true &&
+      localStorage.getItem("username")
+    ) {
+      let username = localStorage.getItem("username");
+      this.getGithubUser(username)
+        .then(res => res.json())
+        .then(data =>
+          this.setState({
+            profile: data,
+            loggedIn: true,
+            username
+          })
+        );
+    }
   }
 
   // props before update
@@ -120,7 +142,7 @@ class App extends Component {
           if (event.type === "PullRequestEvent") {
             return fetch(event.payload.pull_request.url)
             .then(res => res.json())
-            .then(data =>  ({...event, status: data.state, title: data.title}))
+            .then(data =>  ({...event, status: data.state, title: data.title, html_url: data.html_url }))
           } else {
             return event
           }
