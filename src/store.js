@@ -13,6 +13,11 @@
 // 	forkEvents: [],
 // 	pullRequestsEvents: [],
 // 	pullRequestsEventsURLs: []
+// 	// profile: {
+// 	// 	forkEvents: [],
+// 	// 	pullRequestsEvents: [],
+// 	// 	pullRequestsEventsURLs: []
+// 	// }
 // };
 
 // const rootReducer = (state = initialState, action) => {
@@ -25,19 +30,23 @@
 // 		case "CHANGE_FIRST_NAME":
 // 			return {
 // 				...state,
-// 				firstName: action.payload
+// 				firstname: action.payload
 // 			};
-// 			case "LOGIN":
+// 		case "LOGIN":
 // 			return {
 // 				...state,
 // 				loggedIn: true,
-// 				forkEvents: action.payload
-// 			};
-// 			case "LOGOUT":
-// 				return {
+// 		};
+// 		case "LOGOUT":
+// 			return {
 // 				...state,
 // 				loggedIn: false,
-// 			};
+// 		};
+// 		case "FETCH_FORKEVENTS":
+// 			return {
+// 				...state,
+// 				forkEvents: action.payload
+// 		};
 // 		default:
 // 			return state;
 // 	}

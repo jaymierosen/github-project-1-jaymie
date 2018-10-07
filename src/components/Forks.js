@@ -3,18 +3,19 @@ import React from "react";
 const Forks = props => {
 	return (
 		<div className="forks">
-			{props.forkEvents.map(
-				(repo, i) =>
-					repo.type === "ForkEvent" ? (
-					<div key={`fork-${repo.id}`}>
-						<hr />
-						<h3 key={`fork-name-${repo.id}`}>Repo name: {repo.repo.name}</h3>
-						<h4 key={`fork-url-name-${repo.id}`}>
-							<a key={`fork-url-${repo.id}`} href={repo.payload.forkee.html_url}>Forked URL</a>
-						</h4>
-					</div>
-				) : null
-			)}
+			<ul>
+				{props.events.map((event, i) => {
+					if (event.type === "ForkEvent") {
+						return <React.Fragment key={`fork-${i}`}>
+							<hr />
+							<li key={`forkEvent-${i}`}><a href={event.payload.forkee.html_url}>{event.repo.name}</a></li>
+							<li key={`forkEventURL-${i}`}><a href={event.payload.forkee.html_url}>Fork URL</a></li>
+							</React.Fragment>
+					} else {
+						return null;
+					}
+				})}
+			</ul>
 		</div>
 	)
 }
