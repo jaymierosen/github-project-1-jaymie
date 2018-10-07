@@ -11,7 +11,7 @@ class App extends Component {
 		super();
 		this.state = {
 			loggedin: false,
-			token: "2a17a07aa8e2613536b98f447de985ace367b08e",
+			token: "59f825925479ab52d597fb0554206b29018867e3",
 			// use pkanal for testing purposes
 			// set username to an empty string
 			username: "",
@@ -40,7 +40,7 @@ class App extends Component {
 	}
 
 	handleLogin() {
-	this.getGithubUser(this.state.username, this.state.token)
+		this.getGithubUser(this.state.username, this.state.token)
 		.then(res => res.json())
 		.then((events) => {
 			// filter only ForkEvents
@@ -52,7 +52,8 @@ class App extends Component {
 				return fetch(pr.payload.pull_request.url)
 				.then(response => response.json())
 				.then((pr) => {
-					return pr
+					console.log(pr)
+					//return pr
 				});
 			})
 			this.setState({
@@ -62,7 +63,6 @@ class App extends Component {
 				loggedin: true
 			})
 		})
-		
 	}
 
 	handleLogOut() {
@@ -90,7 +90,6 @@ class App extends Component {
 		return (
 			<div className="container">
 				<form className="main-form" onSubmit={this.handleSubmit}>
-					<h1>Github Developer</h1>
 					{/* 'this' is refering to the login component now! */}
 					{this.state.loggedin ? (
 					// <Profile handleLogOut={this.handleLogOut} />

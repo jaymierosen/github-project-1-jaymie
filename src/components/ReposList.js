@@ -6,9 +6,13 @@ const ReposList = props => {
 	return (
 		<div className="repos-list">
 			<h2>My Forked Repos</h2>
-			<Forks forkEvents={props.forkEvents} />
+			<section>
+				<Forks forkEvents={props.forkEvents} />
+			</section>
 			<h2>My PullRequests</h2>
-			<PullRequests pullRequestsEvents={props.pullRequestsEvents} pullRequestsEventsURLs={props.pullRequestsEventsURLs} />
+			<section>
+				<PullRequests pullRequestsEvents={props.pullRequestsEvents} pullRequestsEventsURLs={props.pullRequestsEventsURLs} />
+			</section>
 		</div>
 	);
 };

@@ -1,10 +1,11 @@
 import React from "react";
+import Btn from '@material-ui/core/Button';
 
 const Button = props => (
 	<div className="btn">
-		<button onClick={props.handleClick}>
+		<Btn variant="raised" color="primary" onClick={props.handleClick}>
 			{props.value}
-		</button>
+		</Btn>
 	</div>
 );
 
