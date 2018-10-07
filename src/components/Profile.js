@@ -8,7 +8,7 @@ const Profile = props => {
       {/* we spread in the repos object */}
       <h2>Hi, {props.firstname}!</h2>
       <Button handleClick={props.handleClick} value="Logout" />
-      <ReposList repos={props.repos} pullRequests={props.pullRequests} />
+      <ReposList forkEvents={props.forkEvents} pullRequestsEvents={props.pullRequestsEvents} pullRequestsEventsURLs={props.pullRequestsEventsURLs} />
     </div>
   );
 };

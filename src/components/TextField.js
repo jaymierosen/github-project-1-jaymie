@@ -3,10 +3,10 @@ import React from "react";
 const TextField = props => {
   const { value, handleChange, label, id, name } = props;
   return (
-    <React.Fragment>
+    <div className="text-field">
       <label htmlFor={id}>{label}</label>
       <input type="text" value={value} onChange={handleChange} name={name} id={id} />
-    </React.Fragment>
+    </div>
   );
 };
 
