@@ -13,13 +13,24 @@
 // 	payload: forkEvents
 // });
 
-// const token = "59f825925479ab52d597fb0554206b29018867e3";
+// export const handleLogout = () => ({
+// 	type: "LOGOUT"
+// });
 
-// const getGithubForks = username => fetch(`https://api.github.com/users/${username}/events?per_page=100&access_token=${token}`);
+// const token = "bbc053204e3276f3ceae2c4739b902f4d5a66ed9";
 
-// export const login = username => dispatch => {
-// 	getGithubForks(username)
-// 	.then(res => res.json())
-// 	//.then(profile => dispatch(handleLogin(profile)));
-// 	.then(res => console.log(res))
-// };
+// const getGithubEvents = username => fetch(`https://api.github.com/users/${username}/events?per_page=100&access_token=${token}`);
+
+// export const filterEvents = username => dispatch => {
+// 	getGithubEvents(username)
+// 	  .then(res => res.json())
+// 	  .then((events) => {
+// 		const forkEvents = events.filter((event) => event.type === "ForkEvent");
+// 		const pullRequestEvents = events.filter((event) => event.type === "PullRequestEvent");
+// 		//console.log(forkEvents, pullRequestEvents)
+// 		dispatch(handleLogin(forkEvents, pullRequestEvents))
+// 	  })
+// 	  //.then(profile => dispatch(handleLogin(profile)));
+//   };
+
+  

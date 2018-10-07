@@ -2,3 +2,12 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
+
+label {
+  margin: 0 20px 0 0;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}

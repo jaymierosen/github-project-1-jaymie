@@ -7,11 +7,12 @@ const PullRequests = props => {
 			<ul>
 				{props.pullRequestsEvents.map(
 				(repo) =>
-					<li key={`repo-prEvent-${repo.id}`}>{repo.id}</li>
+					<li key={`repo-prEvent-${repo.id}`}>{repo.repo.name}</li>
 				)}
+				<hr />
 				{props.pullRequestsEventsURLs.map(
 					(repo) =>
-					<li key={`repo-prEventUrl-${repo.id}`}>{repo.id}</li>
+					<li key={`repo-prEventUrl-${repo.id}`}>state: {repo.state}</li>
 				)}
 			</ul>
 		</div>

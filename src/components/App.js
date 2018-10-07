@@ -11,7 +11,7 @@ class App extends Component {
 		super();
 		this.state = {
 			loggedin: false,
-			token: "59f825925479ab52d597fb0554206b29018867e3",
+			token: "6b281a5f5957466bb6c03f8194c61e9ee79501e5",
 			// use pkanal for testing purposes
 			// set username to an empty string
 			username: "",
@@ -56,12 +56,15 @@ class App extends Component {
 					//return pr
 				});
 			})
-			this.setState({
-				forkEvents: forkEvents,
-				pullRequestsEvents: pullRequestsEvents,
-				pullRequestsEventsURLs: pullRequestsEventsURLs,
-				loggedin: true
-			})
+			Promise.all([forkEvents, pullRequestsEvents, pullRequestsEventsURLs]).then((values) => {
+				console.log(values);
+				this.setState({
+					forkEvents: forkEvents,
+					pullRequestsEvents: pullRequestsEvents,
+					pullRequestsEventsURLs: pullRequestsEventsURLs,
+					loggedin: true
+				})
+			});
 		})
 	}
 
