@@ -12,7 +12,7 @@ const Div = styled('div')`sans-serif mw5 center bg-white br3 pa3 pa4-ns mv3 ba b
 const RowGray = styled('section')`dtc tc pv4 bg-black-05`;
 const CircleImg = styled('img')`br-100 pa1 ba b--black-10 h3 w3`;
 
-export default ({ login, name, avatar_url, handleLogOut, followers, events }) => {
+export default ({ login, name, avatar_url, handleLogout, followers, events }) => {
   return (
 	<React.Fragment>
 		{/* <Container> */}
@@ -27,7 +27,7 @@ export default ({ login, name, avatar_url, handleLogOut, followers, events }) =>
 					<FollowingList followers={props.followers} /> */}
 					<CircleImg src={avatar_url} alt={`${login}'s avatar'`} />
 					{/* <Button value="Login" handleClick={handleLogin} /> */}
-					<Button value="Log Out" handleClick={() => console.log(handleLogOut)} />
+					<Button value="Log Out" handleClick={handleLogout} />
 					{/* logout button not working */}
 				</Div>
 			</Header>
