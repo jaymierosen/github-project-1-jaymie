@@ -11,7 +11,7 @@ export default ({
   handleChangeFirstName,
   handleLogin,
   username,
-  firstName
+  firstname
 }) => (
   <Card className="login">
     <H1>please enter your github username to login</H1>
@@ -23,13 +23,13 @@ export default ({
       value={username}
     />
     {/* getting errors with this component */}
-    {/* <TextField
+    <TextField
       name="firstName"
       handleChange={handleChangeFirstName}
       id="user-firstName"
       label="Your First Name"
-      value={firstName}
-    /> */}
+      value={firstname}
+    />
     <Button value="Login" handleClick={handleLogin} />
   </Card>
 );

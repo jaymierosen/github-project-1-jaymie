@@ -20,11 +20,11 @@ const initialState = {
           ...state,
 		  username: action.payload,
         };
-    //   case "CHANGE_FIRST_NAME":
-    //     return {
-    //       ...state,
-    //       firstName: action.payload
-    //     };
+      case "CHANGE_FIRST_NAME":
+        return {
+          ...state,
+          firstname: action.payload
+        };
       case "LOGIN":
         return {
           ...state,
