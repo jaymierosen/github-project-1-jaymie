@@ -1,25 +1,35 @@
 import React from "react";
 import TextField from "./TextField.js";
 import Button from "./Button.js";
-const Login = props => (
-  <div>
-    <h2>please enter your github username to login</h2>
-    <TextField
-      value={props.username}
-      label="username"
-      id="github-username"
-      handleChange={props.handleChange}
-      name="username"
-    />
-    <TextField
-      value={props.firstname}
-      label="first name"
-      id="github-username"
-      handleChange={props.handleChange}
-      name="firstname"
-    />
-    <Button handleClick={props.handleClick} value="Login" />
-  </div>
-);
+import styled from 'tachyons-components';
 
-export default Login;
+const H1 = styled('h1')`sans-serif f2 mb3`;
+const Card = styled('section')`sans-serif mw5 center bg-white br3 pa3 pa4-ns mv3 ba b--black-10`;
+
+export default ({
+  handleChangeUsername,
+  handleChangeFirstName,
+  handleLogin,
+  username,
+  firstName
+}) => (
+  <Card className="login">
+    <H1>please enter your github username to login</H1>
+    <TextField
+      name="username"
+      handleChange={handleChangeUsername}
+      id="github-username"
+      label="Username"
+      value={username}
+    />
+    {/* getting errors with this component */}
+    {/* <TextField
+      name="firstName"
+      handleChange={handleChangeFirstName}
+      id="user-firstName"
+      label="Your First Name"
+      value={firstName}
+    /> */}
+    <Button value="Login" handleClick={handleLogin} />
+  </Card>
+);
