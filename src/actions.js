@@ -1,4 +1,4 @@
-import { token } from "./constants/tokens";
+import { config } from "../config";
 
 const ACTIONS = {
   CHANGE_USERNAME: "CHANGE_USERNAME",
@@ -22,10 +22,10 @@ export const handleChangeFirstName = e => ({
 });
 
 // github username
-const getGithubUser = (username) => fetch(`https://api.github.com/users/${username}?per_page=100&access_token=${token}`);
+const getGithubUser = (username) => fetch(`https://api.github.com/users/${username}?per_page=100&access_token=${config.MY_KEY}`);
 
 // github events
-const getGithubEvents = (username) => fetch(`https://api.github.com/users/${username}/events?per_page=100&access_token=${token}`);
+const getGithubEvents = (username) => fetch(`https://api.github.com/users/${username}/events?per_page=100&access_token=${config.MY_KEY}`);
 
 // login
 export const login = (username) => dispatch => {
