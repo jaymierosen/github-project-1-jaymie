@@ -1,4 +1,4 @@
-import { config } from "../config";
+import { config } from "./config";
 
 const ACTIONS = {
   CHANGE_USERNAME: "CHANGE_USERNAME",
