@@ -40,7 +40,7 @@ class App extends Component {
 			{...this.props.profile} 
 			followers={this.props.followers} 
 			events={this.props.events} 
-      handleLogout={this.props.handleLogout}/>
+      		handleLogout={this.props.handleLogout}/>
         ) : (
           <Login
 			handleChangeUsername={this.props.handleChangeUsername}
