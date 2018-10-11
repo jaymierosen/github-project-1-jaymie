@@ -1,4 +1,4 @@
-# github-project-1-jaymie
+# github user app -- see your followers, forks and pull requests
 ## created by jaymie rosen
 
 ### when folder is downloaded, run `npm install` in the terminal
